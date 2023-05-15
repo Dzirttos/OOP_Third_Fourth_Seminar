@@ -6,9 +6,10 @@ public class Trooper extends Warrior<Spear,GreatShield>{
 
     }
 
-int range(){
+int defence(){
     Random random = new Random();
-    return random.nextInt(weapon.range());
+    return random.nextInt(shield.defence());
+  
 }
 
 @Override

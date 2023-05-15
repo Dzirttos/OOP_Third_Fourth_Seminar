@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Team <T extends Warrior>{
     List<T> team = new ArrayList<>();
-    public Team<T> add(T warriorT){
-        team.add(warriorT);
+    public Team<T> add(T warrior){
+        team.add(warrior);
         return this;
     }
 
@@ -15,9 +15,11 @@ public class Team <T extends Warrior>{
             warriors.append(itemT);
             warriors.append("\n");
         }
-        warriors.append(String.format("heathPoint %s, damage %s, max range %s", healthPoints(), getDamage(), maxRange()));
+     
+        warriors.append(String.format("heathPoint: %s, damage: %s, max range: %s, min defence: %s", healthPoints(), getDamage(), maxRange(), minDefence()));
         return warriors.toString();
     }
+
 
     public int healthPoints(){
         int sum = 0;
@@ -34,6 +36,14 @@ public class Team <T extends Warrior>{
         return sum;
     }
 
+    public int getDefence(){
+        int sum = 0;
+        for(T itemT: team){
+            sum += itemT.getShield().defence();
+        }
+        return sum;
+    }
+
     public int maxRange(){
         int max = 0;
         for(T itemT: team){
@@ -45,4 +55,17 @@ public class Team <T extends Warrior>{
         }
         return max;
     }
-}
+    public int minDefence(){
+        int min = 100;
+        for(T itemT: team){
+            if(min > itemT.getShield().defence()){
+                min = itemT.getShield().defence();
+            }
+        }
+        return min;
+    }
+
+
+    }
+
+
