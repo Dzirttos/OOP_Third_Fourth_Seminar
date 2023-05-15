@@ -1,8 +1,8 @@
 import java.util.Random;
 
-public class Archer extends Warrior<Bow>{
+public class Archer extends Warrior<Bow,Shield>{
     public Archer(String name, Bow bow, int healthPoint) {
-        super(name, bow, healthPoint);
+        super(name, bow, healthPoint, null);
     }
     int range(){
         Random random = new Random();
