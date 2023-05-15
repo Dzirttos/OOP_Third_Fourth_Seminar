@@ -34,12 +34,13 @@ public class Main {
         System.out.println();
         System.out.println(trooperTeam);
         System.out.println();
-        
-        // Battle placeOfBattle = new Battle(new Archer("Henry", new Bow(), 30, new Offhand()),
-        //         new Assassin("Jonny", new Knife(), 34, new Offhand()));
-        // Warrior winner = placeOfBattle.fight();
 
-        // System.out.println(winner);
+        Battle placeOfBattle = new Battle(new Viking("Eivor", new Axe(), 25, new ShortShield()),
+                new Trooper("Avrelius", new Spear(), 18, new GreatShield()));
+        Warrior winner = placeOfBattle.fight();
+        
+        System.out.println();
+        System.out.println("\u001B[32m" + winner);
     }
 
 }
